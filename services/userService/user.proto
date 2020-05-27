@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message SignupData {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message SigninData {
+    string email = 1;
+    string password = 2;
+}
+
+message Response {
+    string status = 1;
+}
+
+service User {
+    rpc CreateNewUser(SignupData) returns (Response) {}
+    rpc UserSignin(SigninData) returns (Response) {}
+}
